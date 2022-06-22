@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kalkulator Depresiasi</title>
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<div class="container-fluid mw-100 mh-100 bg-dark" style="border:0;margin-bottom:0px;padding-bottom:20px;">
+			<form action="javascript:count()">
+				<div class="card mb-3 mw-100 mh-100 bg-green" style="border:0">
+					<div class="card mt-3 mw-100 mh-100 text-black" style="border:0">
+						<center>
+							<h3>Beban Penyusutan - Metode Garis Lurus</h3>
+							<p><i>Digunakan untuk menghitung beban penyusutan berdasarkan Metode Garis Lurus yang sesuai</i></p>
+						</center>
+					</div>
+
+					<div class="card-body mw-100 mh-100 text-black">
+						<div class="row mb-2 mw-100 mh-100">
+							<div class="col-md-12 col-lg-12 text-left">
+								<p class="text-secondary text-light">
+								<center>
+									<b>Ketentuan  :</b><br>
+									- Jika ada kolom yang tidak perlu di isi, silahkan isi dengan angka 0 saja<br>
+									- Mengisi kolom tanpa pemisah angka, dengan contohnya 1.000 ditulis 1000<br>
+									- Rentang Usia Ekonomis yang bisa dihitung dengan ketentuan maksimal 10 tahun<br>
+								</center>
+								</p>
+							</div>
+						</div>
+
+						<div class="row mb-4">
+							<div class="col-lg-12 col-sm-12">
+								<div class="card" style="border:0">
+									<div class="card-body">
+										
+										<div class="row mb-1">
+											<div class="col-6">
+												<div class="text-left text-black">Harga Dari Aset			:</div>
+											</div>
+											<div class="col-6">
+												<div class="input-group text">
+													<input id="one" type="number" pattern="(0-9)" title="0-9" min="0" maxlength="20" class="form-control" placeholder="Jumlah">
+												</div>
+											</div>
+										</div>
+
+										<div class="row mb-1">
+											<div class="col-6">
+												<div class="text-left text-black">Residu					:</div>
+											</div>
+											<div class="col-6">
+												<div class="input-group text">
+													<input id="two" type="number" pattern="(0-9)" title="0-9" min="0" maxlength="20" class="form-control" placeholder="Jumlah">
+												</div>
+											</div>
+										</div>
+
+										<div class="row mb-1">
+											<div class="col-6">
+												<div class="text-left text-black">Umur Ekonomis 			:</div>
+											</div>
+											<div class="col-6">
+												<div class="input-group text">
+													<input id="three" type="number" pattern="(0-9)" title="0-9" min="0" max = "10" maxlength="20" class="form-control" placeholder="Jumlah">
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row mt-4 text-left">
+							<div class="col-sm-12 text-left"></div>
+						</div>
+
+						<center>
+							<button class="btn btn-lg btn-block btn-primary" style="width:300px"; type="submit">Hitung Beban Penyusutan</button>
+
+							<div class="card-footer bg-secondary text-white mt-4" style="width:500px";><h5 id="result" >Hasil Beban Penyusutan : 0</h5></div>
+
+							<button class="row mt-4 btn btn-lg btn-block btn-info" style="width:300px" onclick="location.href='home.html'"><h5>Pilih Kalkulator Lain</h5></button>
+						</center>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			function count(){
+
+				//fungsi
+				var one = document.getElementById('one').value;
+				var two = document.getElementById('two').value;
+				var three = document.getElementById('three').value;
+
+				var hargaOne = parseFloat(one);
+				var hargaTwo = parseFloat(two);
+				var hargaThree = parseFloat(three);
+
+				//rumus
+				var result = ((hargaOne - hargaTwo)/hargaThree);
+
+				//output
+				document.getElementById("result").innerHTML = "Hasil Beban Penyusutan : " + (result);
+			}
+		</script>
+	</body>
+</html>
